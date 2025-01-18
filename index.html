@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enes DELİDUMAN | Fullstack Web Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <style>
+        @charset "UTF-8";
+
+        .ml-2 {
+            margin-left: 2rem;
+        }
+
+        .m-1 {
+            margin: 1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 10px;
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 114rem;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        section {
+            padding: 8rem 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 2rem 0;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 300;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 7rem;
+        }
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 5rem;
+            }
+        }
+
+        h2 {
+            font-size: 5rem;
+        }
+
+        @media (max-width: 992px) {
+            h2 {
+                font-size: 3.6rem;
+            }
+        }
+
+        h3 {
+            font-size: 2.4rem;
+        }
+
+        h4 {
+            font-size: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        header {
+            width: 100%;
+            z-index: 999;
+            padding: 3rem 0;
+            position: fixed;
+            bottom: 0;
+        }
+
+        header nav {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            width: -moz-fit-content !important;
+            width: fit-content !important;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            justify-content: center;
+        }
+
+        header nav .logo a {
+            font-size: 2.4rem;
+            font-weight: 700;
+        }
+
+        header nav .links {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 15px 40px;
+        }
+
+        header nav .links .navbar-link {
+            position: relative;
+            color: rgb(16, 16, 16);
+            height: 100%;
+        }
+
+        header nav .links .navbar-link::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            color: rgb(16, 16, 16);
+            background-color: rgb(16, 16, 16);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            top: 170%;
+            transition: all 0.3s ease;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        header nav .links .navbar-link:hover::after {
+            opacity: 1;
+            top: 115%;
+            visibility: visible;
+        }
+
+        header.scrolled .navbar-link {
+            color: white !important;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 50px;
+            height: 100vh;
+        }
+
+        .hero .codes {
+            width: -moz-fit-content;
+            width: fit-content;
+            height: -moz-fit-content;
+            height: fit-content;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            background-color: rgb(16, 16, 16);
+            border-radius: 15px;
+            padding: 20px 40px 20px 20px;
+        }
+
+        .hero .codes .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 70px;
+            margin-bottom: 20px;
+        }
+
+        .hero .codes .top span {
+            width: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            height: 15px;
+            display: block;
+        }
+
+        .hero .codes .top span:nth-child(1) {
+            background-color: #ff5f5a;
+        }
+
+        .hero .codes .top span:nth-child(2) {
+            background-color: #ffbe2e;
+        }
+
+        .hero .codes .top span:nth-child(3) {
+            background-color: #2aca44;
+        }
+
+        .hero .codes .bottom {
+            color: white;
+            font-size: 1.8rem;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        @media (max-width: 576px) {
+            .hero .codes .bottom {
+                font-size: 0.8rem;
+            }
+        }
+
+        .hero .codes .bottom .lines .line {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 20px;
+        }
+
+        .hero .codes .bottom .lines .line .number {
+            display: block;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            text-align: end;
+            width: 20px;
+        }
+
+        .hero .codes .bottom .lines .line .code .onemain {
+            color: #5191c5;
+        }
+
+        .hero .codes .bottom .lines .line .code .tomain {
+            color: #4bb4ee;
+        }
+
+        .hero .codes .bottom .lines .line .code .threemain {
+            color: #cdcd9f;
+        }
+
+        .hero .codes .bottom .lines .line .code .fivemain {
+            color: #9cdcfe;
+        }
+
+        .hero .codes .bottom .lines .line .code .sixmain {
+            color: #c18871;
+        }
+
+        .hero .codes .bottom .lines .line .code.tab {
+            margin-left: 4rem;
+        }
+
+        .hero .codes .bottom .lines .line .code.tab.to {
+            margin-left: 8rem;
+        }
+
+        .hero .texts {
+            font-family: "Platypi", serif;
+            text-align: center;
+        }
+
+        .hero .texts h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero .texts span {
+            font-size: 2rem;
+        }
+
+        .footer {
+            background-color: #343a40;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer .footer-content {
+            margin-top: 2px;
+            color: white;
+        }
+
+        .footer .footer-content span {
+            font-size: 1.5rem;
+        }
+
+        .footer .social-icons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .footer .social-icons .social-icon {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons .social-icon:hover {
+            color: #007bff;
+        }
+
+        .footer .social-icons .social-icon i:hover {
+            color: white;
+        }
+
+        @media (max-width: 991px) {
+            .footer {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="codes">
+
+            <div class="top">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="bottom">
+                <div class="lines">
+                    <div class="line">
+                        <span class="number" id="1">1</span>
+                        <span class="code">
+                            <span class="onemain">let </span><span class="tomain">developer </span>= <span
+                                class="onemain">new </span> <span class="threemain">Developer</span>({
+                        </span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="2">2</span>
+                        <span class="code tab"><span class="fivemain">fullName:</span> <span class="sixmain">'Enes
+                                DELİDUMAN'</span>,</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="3">3</span>
+                        <span class="code tab"><span class="fivemain">age:</span>
+                            <span class="sixmain">21</span>,
+                        </span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="4">4</span>
+                        <span class="code tab"><span class="fivemain">university:</span> <span class="sixmain">'Abant
+                                İzzet Baysal Üniversitesi'</span>,</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="5">5</span>
+                        <span class="code tab"><span class="fivemain">field:</span> <span class="sixmain">'Bilgisayar
+                                Programcılığı'</span>,</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="6">6</span>
+                        <span class="code tab"><span class="fivemain">grade:</span> <span
+                                class="sixmain">2</span>.,</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="7">7</span>
+                        <span class="code tab"><span class="fivemain">skills:</span> [</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="8">8</span>
+                        <span class="code tab to"><span class="sixmain">'HTML'</span>, <span
+                                class="sixmain">'CSS'</span>, <span class="sixmain">'Tailwind CSS'</span>, <span
+                                class="sixmain">'Bootstrap'</span>,</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="9">9</span>
+                        <span class="code tab to"><span class="sixmain">'JavaScript'</span>, <span
+                                class="sixmain">'Go'</span>, <span class="sixmain">'NodeJS'</span>, <span
+                                class="sixmain">'ExpressJS'</span>,</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="10">10</span>
+                        <span class="code tab to"><span class="sixmain">'SQL - MSSQL / MYSQL'</span>, <span
+                                class="sixmain">'MongoDB'</span></span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="11">11</span>
+                        <span class="code tab">]</span>
+                    </div>
+                    <div class="line">
+                        <span class="number" id="12">12</span>
+                        <span class="code">});</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="texts">
+            <h1>Enes DELİDUMAN</h1>
+            <span>Fullstack Web Developer</span>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2024 Enes Deliduman. Tüm hakları saklıdır.</span>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/enesdeliduman" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/enesdman0" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        var header = document.querySelector("header")
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 3) {
+                header.classList.add("scrolled")
+            } else {
+                header.classList.remove("scrolled")
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>
